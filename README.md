@@ -1,7 +1,23 @@
-# twilioCallLogs
-Scripts to get all call logs from your Twilio account. Includes getting all logs in parent and subaccounts and getting logs from the Archive (older than 13 months) with the Bulk Export Utility API.
+# What are these scripts?
+These scripts get all call logs from your Twilio account. This includes getting all logs in parent and subaccounts and getting logs from the Archive (older than 13 months) with the Bulk Export Utility API.
 
-# Get call logs from parent & all subaccounts for past 13 months (all logs available from /Call resource)
+# Why were these made?
+Twilio customers come from all sorts of different backgrounds. Some use the Twilio Elastic SIP Trunking product for example, which doesn't use the API. So often these customers along with others, have trouble getting their call logs when they need them. 
+
+This becomes more challenging for ISV customers or customers with a large number of subaccounts as the API initializes with a single account, so if not done programmatically, it becomes very time consuming to get data from all the subaccounts.
+
+All of this also became more challenging after Twilio introduced their log Archive where logs older than 13 months would go to an archive only accessible through a different Bulk Export API. This API is not as user friendly and requires getting logs day by day. It also requires initiating a job to fetch the logs which can only be downloaded via temporary one-time link once the fetch jobs are complete. 
+
+The scripts here handle all of the above and can be easily modified and used by any Twilio customer to get their call logs of any time period with minimal effort. 
+They can also serve as a guide if writing your own utility in another programming language.
+
+# Pre-requisites
+1. A Twilio Account
+2. Your parent account SID and auth token
+3. A NodeJS - Twilio development environment (i.e. node and Twilios nodeJS helper library installed) a guide if you need it (express not required) --> https://www.twilio.com/docs/usage/tutorials/how-to-set-up-your-node-js-and-express-development-environment
+
+
+# Part 1 - Get call logs from parent & all subaccounts for past 13 months (all logs available from /Call resource)
 File = call_logs_all_parent_and_subaccounts_past13months.js
 
 1. Ensure your directory has a .env file OR update the file with your parent account SID and auth token.
@@ -10,7 +26,7 @@ File = call_logs_all_parent_and_subaccounts_past13months.js
 All available call logs in the parent and all subaccounts will be printed to the Console separated by account.
 
 
-# Get call logs older than 13 months with the Bulk Export API from parent & all subaccounts
+# Part 2 - Get call logs older than 13 months with the Bulk Export API from parent & all subaccounts
 Files = bulk_export_initiate_jobs.js and bulk_export_fetch_day_logs.js
 
 1. Update the file bulk_export_initiate_jobs.js  
