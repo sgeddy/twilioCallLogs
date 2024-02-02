@@ -2,11 +2,11 @@
 These scripts get all call logs from your Twilio account. This includes getting all logs in parent and subaccounts and getting logs from the Archive (older than 13 months) with the Bulk Export Utility API.
 
 # Why were these made?
-Twilio customers come from all sorts of different backgrounds. Some use the Twilio Elastic SIP Trunking product for example, which doesn't use the API. So often these customers along with others, have trouble getting their call logs when they need them. 
+Twilio customers come from all sorts of different backgrounds. Some use the Twilio Elastic SIP Trunking product for example, which doesn't use the API. So often these customers along with others, have trouble getting their call logs when the Console features are not sufficient or not feasible. 
 
-This becomes more challenging for ISV customers or customers with a large number of subaccounts as the API initializes with a single account, so if not done programmatically, it becomes very time consuming to get data from all the subaccounts.
+For example, ISV customers or customers with a large number of subaccounts cannot simple pull their logs from the Console or the API within a reasonable amount of time. If not done programmatically, getting logs from all subaccounts becomes very time consuming and not feasible as they would have to either manually login or manually update their authenticationg credentials for each subaccount.
 
-All of this also became more challenging after Twilio introduced their log Archive where logs older than 13 months would go to an archive only accessible through a different Bulk Export API. This API is not as user friendly and requires getting logs day by day. It also requires initiating a job to fetch the logs which can only be downloaded via temporary one-time link once the fetch jobs are complete. 
+On top of that, things became more challenging after Twilio introduced the log Archive where logs older than 13 months would go to an archive only accessible through a different Bulk Export API. This API is not as user friendly and requires getting logs day by day. It also requires initiating a job to fetch the logs which can only be downloaded via temporary one-time link once the fetch jobs are complete. 
 
 The scripts here handle all of the above and can be easily modified and used by any Twilio customer to get their call logs of any time period with minimal effort. 
 They can also serve as a guide if writing your own utility in another programming language.
